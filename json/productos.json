@@ -1,0 +1,10 @@
+[
+{"codigo": "1", "tipo": "Pantalon", "precio": 2000, "talla": "L", "stock": 20, "img":"./img/pantalon.jpg"},
+{"codigo": "1", "tipo": "Pantalon", "precio": 2200, "talla": "XL", "stock": 10, "img":"./img/pantalon.jpg"},
+{"codigo": "2", "tipo": "Pollera", "precio": 1500, "talla": "L", "stock": 17, "img": "./img/pollera.jpg"},
+{"codigo": "2", "tipo": "Pollera", "precio": 1700, "talla": "XL", "stock": 15, "img": "./img/pollera.jpg"},
+{"codigo": "3", "tipo": "Media", "precio": 500, "talla": "L", "stock": 5, "img": "./img/medias.jpg"},
+{"codigo": "3", "tipo": "Media", "precio": 700, "talla": "XL", "stock": 30, "img": "./img/medias.jpg"},
+{"codigo": "4", "tipo": "Camisa", "precio": 3000, "talla": "L", "stock": 4, "img": "./img/camisa.jpg"},
+{"codigo": "4", "tipo": "Camisa", "precio": 3200, "talla": "XL", "stock": 5, "img": "./img/camisa.jpg"}
+]

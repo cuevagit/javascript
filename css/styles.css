@@ -1,0 +1,139 @@
+body {
+  background-image: linear-gradient(to right top, #8f9ea5, #004d7a, #008793, #00bf72, #6212eb) !important;
+  
+  /*  background-image: url("aula.jpg");
+    background-repeat: repeat;
+    background-color: #cccccc;*/ }
+
+a:hover {
+  color: #184f96; }
+
+.grid1 {
+  display: grid;
+  grid-template-areas: "header header header header header header"
+ "nav nav nav nav nav nav"
+ "titulo1 titulo2 titulo3 titulo4 titulo5 imagen_academico"
+ "renglon1 renglon2 renglon3 renglon4 renglon5 imagen_academico"
+ "iframe iframe iframe iframe iframe iframe"
+ "footer footer footer footer footer footer";
+  /* grid-template-rows: 1fr 10fr 1fr 10fr; */
+  grid-template-rows: 50px 100px 30px 80px 160px 150px;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+  /* grid-row-gap: 1px;*/
+  grid-column-gap: 5px;
+  /* height: 100vh;*/
+  margin: 0; }
+
+
+label {
+  color: #9aa4b3;
+  vertical-align: top; }
+
+textarea {
+  align-items: flex-end;
+  vertical-align: top; }
+
+input, form input:focus {
+  accent-color: #721227; }
+
+form input, form input:focus {
+  background-color: #c5c7d1;
+  outline-color: #cc203d; }
+
+#inicio {
+  display: flex;
+  flex-direction: row;
+  justify-content: left; }
+
+form input:focus {
+  outline-color: #cc203d; }
+
+.grid2 {
+  display: grid;
+  grid-template-areas: "header header";
+  /* grid-template-rows: 1fr 10fr 1fr 10fr; */
+  grid-template-rows: 50px 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  /* height: 100vh;*/
+  margin: 0; }
+
+
+body {
+  /*background-color: rgb(158, 173, 185);*/
+  /*display: flex;*/
+  min-height: 100vh;
+  /* background-image: url("/img/preinscripcion.jpg");*/ }
+
+footer {
+  grid-area: footer; }
+
+a {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 1000;
+  color: aquamarine; }
+
+.titulo {
+  top: 10px;
+  border-style: border-box;
+  /*background-color: rgb(158, 173, 185);*/
+  font-size: 2em;
+  border-style: dotted;
+  display: flex;
+  flex-direction: row;
+  left: 2.7cm;
+  position: relative;
+  margin-left: 60px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
+  .titulo:hover {
+    background-color: #12ebc7;
+    transition: color 5s; }
+
+.logo {
+  top: 11px;
+  position: absolute;
+  width: "100px";
+  /*height: "50px";*/
+  margin-left: 60px; }
+
+#inicio {
+  display: inline-flex;
+  flex-direction: row; }
+
+header {
+  grid-area: header; }
+
+
+
+ .boton{
+    background-color: #e6dbde;
+  }
+
+  .botonapretado{
+    background-color: #31a2b4;
+  }
+
+
+  .card{
+    height: 125px;
+    width: 125px;
+    margin: 20px 5px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: center;
+  }
+  
+  .card-img-top{
+    height: 280px;
+    width: 280px;
+  }
+
+  h5{
+    color: #131554;
+  }
+
+ #lista2 {
+   box-shadow: #dd152c;
+}
