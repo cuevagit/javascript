@@ -104,17 +104,7 @@ class Carrito{
 
  } //sino tiene valores le asigno los valores inciales
   else {
-
-    //console.log("entro!!!!");
-   /* productos.push(new Producto("1", "Pantalon",2000, "L", 20, "./img/pantalon.jpg"));
-    productos.push(new Producto("1", "Pantalon",2200, "XL", 10, "./img/pantalon.jpg"));
-    productos.push(new Producto("2", "Pollera",1500, "L", 17, "./img/pollera.jpg"));
-    productos.push(new Producto("2", "Pollera",1700, "XL", 15, "./img/pollera.jpg"));
-    productos.push(new Producto("3", "Media",500, "L", 5, "./img/medias.jpg"));
-    productos.push(new Producto("3", "Media",700, "XL", 30, "./img/medias.jpg"));
-    productos.push(new Producto("4", "Camisa",3000, "L", 4, "./img/camisa.jpg"));
-    productos.push(new Producto("4", "Camisa",3200, "XL", 5, "./img/camisa.jpg"));*/
-
+//Utilizo fetch para traer los productos del archivo de json (en caso que el localstorage esté vacio)
   fetch('./json/productos.json')
     .then( (resp) => resp.json())
     .then( (data) => {
@@ -125,10 +115,17 @@ class Carrito{
      console.log("Dentro de Fetch");
      let productosJSON = JSON.stringify(productos);
      localStorage.setItem('productos', productosJSON);
-     mostrarproductos();
-    // vercarrito();
+
+  //En base a los productos que tengo creo el carrito vacio (en caso de que el localstorage esté vacio)
+  productos.forEach((prod) => {
+  carrito.push(new Carrito(prod.codigo, 0, prod.talla.toUpperCase(), 0, prod.img));
   })
- //console.log("Fuera de Fecth");
+
+  let productosJSONc = JSON.stringify(carrito);
+  localStorage.setItem('carrito', productosJSONc);
+
+     mostrarproductos();
+  })
 
  }
  let productosJSON = JSON.stringify(productos);
@@ -149,30 +146,10 @@ class Carrito{
     carrito.push(c);
   })
 
- } else { //Sino tiene valores les asigno valor incial
- carrito.push(new Carrito("1", 0, "L", 0, "./img/pantalon.jpg"));
- carrito.push(new Carrito("1", 0, "XL", 0, "./img/pantalon.jpg"));
- carrito.push(new Carrito("2", 0, "L", 0, "./img/pollera.jpg"));
- carrito.push(new Carrito("2", 0, "XL", 0, "./img/pollera.jpg"));
- carrito.push(new Carrito("3", 0, "L", 0, "./img/medias.jpg"));
- carrito.push(new Carrito("3", 0, "XL", 0, "./img/medias.jpg"));
- carrito.push(new Carrito("4", 0, "L", 0, "./img/camisa.jpg"));
- carrito.push(new Carrito("4", 0, "XL", 0, "./img/camisa.jpg"));
-
- /*productos.forEach((prod) => {
-  carrito.push(new Carrito(prod.codigo, 0, prod.talla.toUpperCase(), 0, prod.img));
-})*/
+ }
 
 let productosJSONc = JSON.stringify(carrito);
 localStorage.setItem('carrito', productosJSONc);
-}
-//console.log("Fuera de Fecth");
-
-
-
-
-
-//console.log(productos);
 
 mostrarproductos();
 
@@ -284,7 +261,7 @@ mostrarproductos();
 
     document.getElementById("botoncarrito").className = "botonapretado";
 
-
+//Recorro el array del carrito para poder mostrarlo
     for (const carr of carrito) {
 
       if (carr.cantidad > 0){
