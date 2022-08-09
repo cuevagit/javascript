@@ -5,7 +5,7 @@ const carrito = [];
 
 //localStorage.clear(carrito);
 //localStorage.clear(productos);
-
+//localStorage.clear();
 class Producto{
   constructor(codigo, tipo, precio, talla, stock, img) {
       this.codigo = codigo;
@@ -51,16 +51,50 @@ class Carrito{
   return productos.find ((prod) => prod.codigo.includes(codigo) && prod.talla.includes(talla.toUpperCase())).stock--; 
   }
 
+    ///realliza la busqueda
+    const botonbusqueda = document.getElementById("buscar");
+    botonbusqueda.onclick = () => mostrarproductos();
 
  function mostrarproductos(){
   
-  console.log("Dentro de mostrar productos");
+  //console.log("Dentro de mostrar productos");
 
     const contenedor = document.getElementById("productos");
   
     let cantcomprada = 0;
-  
-    productos.forEach(producto =>  {
+    contenedor.innerHTML = "";
+
+    busqueda = document.getElementById("busqueda");
+
+   let productonuevo; 
+console.log(busqueda.value);
+   if (busqueda.value) 
+     productonuevo = productos.filter((el) => el.tipo.toUpperCase().includes(busqueda.value.toUpperCase()));
+    else 
+     productonuevo = productos;
+    
+    combo = document.getElementById('codigo');
+    combo.innerHTML = '';
+    productocombo = productonuevo.filter((el) => el.talla == 'L');
+
+    console.log(productocombo.length);
+   if(productocombo.length > 1) {
+    opcion = document.createElement("option");
+    opcion.value = 'S';
+    opcion.text = 'Seleccione';
+    combo.appendChild(opcion);
+  }
+
+    productocombo.forEach(producto =>  {
+       opcion = document.createElement("option");
+       opcion.value = producto.codigo;
+       opcion.text = producto.tipo;
+       combo.appendChild(opcion);
+     }
+    )
+
+    
+    productonuevo.forEach(producto => {
   
        const stock = hayStock(producto.codigo, producto.talla);
        const divProducto = document.createElement('div');
@@ -152,6 +186,8 @@ let productosJSONc = JSON.stringify(carrito);
 localStorage.setItem('carrito', productosJSONc);
 
 mostrarproductos();
+
+
 
 //Evento para comprar los productos seleccionados e ir agregando al carrito
  function evento() {
